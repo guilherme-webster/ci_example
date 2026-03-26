@@ -41,15 +41,20 @@ class User:
     @staticmethod
     def _validate_password(password: str):
         if len(password) < PASSWORD_POLICY["min_length"]:
-            raise ValueError(f"password must be at least {PASSWORD_POLICY['min_length']} chars")
+            raise ValueError(f"password must be at least " +
+                             "{PASSWORD_POLICY['min_length']} chars")
         if not re.search(PASSWORD_POLICY["upper"], password):
-            raise ValueError("password must contain at least one uppercase letter")
+            raise ValueError("password must contain at least " \
+            "one uppercase letter")
         if not re.search(PASSWORD_POLICY["lower"], password):
-            raise ValueError("password must contain at least one lowercase letter")
+            raise ValueError("password must contain at least " \
+            "one lowercase letter")
         if not re.search(PASSWORD_POLICY["digit"], password):
-            raise ValueError("password must contain at least one digit")
+            raise ValueError("password must contain at least " \
+            "one digit")
         if not re.search(PASSWORD_POLICY["special"], password):
-            raise ValueError("password must contain at least one special character")
+            raise ValueError("password must contain at least " \
+            "one special character")
 
     def to_dict(self) -> dict:
         return {

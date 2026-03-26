@@ -13,9 +13,11 @@ def set_db(db: DBInterface) -> None:
     _db = db
 
 
-def create_user(name: str, email: str, password: str, date_of_birth: str) -> Dict:
+def create_user(name: str, email: str, password: str, 
+                date_of_birth: str) -> Dict:
     """Create a user and return user data dict."""
-    user = User(name=name, email=email, password=password, date_of_birth=date_of_birth)
+    user = User(name=name, email=email, password=password, 
+                ate_of_birth=date_of_birth)
     return _db.create(user.to_dict())
 
 
